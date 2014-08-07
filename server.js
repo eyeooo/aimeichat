@@ -24,7 +24,7 @@ var users=[];
 app.use('/', express.static(__dirname + '/www'));
 server.listen(process.env.PORT || 3000);
 
-io.on('connection',function(socket){
+io.sockets.on('connection',function(socket){
    socket.on('login',function(nickname){
        if(users.indexOf(nickname)>-1){
            socket.emit('nickExisted');
